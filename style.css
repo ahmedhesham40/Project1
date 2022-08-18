@@ -28,6 +28,20 @@
   justify-content: flex-start;
   padding-left: 20px;
 }
+.act1 {
+  left: 45px !important;
+  height: fit-content !important;
+  top: 39% !important;
+  transform: translateY(-50%) !important;
+  width: fit-content !important;
+}
+.act2 {
+  right: 45px !important;
+  height: fit-content !important;
+  top: 39% !important;
+  transform: translateY(-50%) !important;
+  width: fit-content !important;
+}
 .tabs li {
   color: rgb(123, 119, 119);
   font-weight: bold;
@@ -37,11 +51,6 @@
 .tabs li:hover,
 .tabs li.active {
   color: #1f1209;
-}
-
-.tabs-active {
-  display: flex !important;
-  flex-wrap: wrap !important;
 }
 
 .tabs-hidden {
@@ -54,7 +63,12 @@
 
 .tabs-content-active {
   display: flex;
-  flex-wrap: wrap;
+  overflow: hidden;
+  column-gap: 25px;
+}
+
+.tabs-content-active > div {
+  transition: 0.2s linear;
 }
 
 .tabs-content-hidden {
@@ -133,14 +147,14 @@ hr {
   background-color: rgb(248, 249, 251);
   display: flex;
   justify-content: space-between;
-  height: 300px;
+  height: fit-content;
   padding-top: 50px;
   margin-left: 100px;
   margin-right: 100px;
 }
 .newU {
   background-color: white;
-  height: 150px;
+  height: 170px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
@@ -376,7 +390,7 @@ p {
     font-size: 20px;
   }
   .newU p {
-    font-size: 15px;
+    font-size: 10px;
   }
   .head {
     margin-left: 80px;

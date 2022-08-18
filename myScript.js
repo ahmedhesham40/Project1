@@ -3,6 +3,7 @@ let tabsArray = Array.from(tabs);
 let divs = document.querySelectorAll(".content > div");
 let divsArray = document.querySelectorAll(".content > div");
 let currentTab = "tab1";
+let i = 0;
 
 function toggleActive() {
   tabsArray.forEach((ele) => {
@@ -44,6 +45,7 @@ const searchInput = document.querySelector("#search-input");
 const searchSubmit = document.querySelector("#search-submit");
 
 function loadData(currentTab) {
+  i = 0;
   fetch("db.json")
     .then((response) => response.json())
     .then((json) => {
@@ -127,5 +129,39 @@ function loadData(currentTab) {
       filterResults(currentTab);
     });
 }
+let carousel1 = document.querySelector(".act2");
+let carousel2 = document.querySelector(".act1");
+let con = document.querySelector(".content");
+let maxWidth = 12 * 150;
+if (window.innerWidth <= screen.width) {
+  maxWidth = screen.width - window.innerWidth + 12 * 150;
+}
 
+window.onresize = () => {
+  if (window.innerWidth <= screen.width) {
+    maxWidth = screen.width - window.innerWidth + 12 * 150;
+  }
+};
+
+carousel1.addEventListener("click", () => {
+  let contentDivs = document.querySelectorAll(".tabs-content-active > div");
+
+  if (i < maxWidth) {
+    i += 150;
+    console.log(i);
+    contentDivs.forEach((div) => {
+      div.style.transform = `translateX(${-i}px)`;
+    });
+  }
+});
+carousel2.addEventListener("click", () => {
+  let contentDivs = document.querySelectorAll(".tabs-content-active > div");
+
+  if (i > 0) {
+    i -= 150;
+    contentDivs.forEach((div) => {
+      div.style.transform = `translateX(${-i}px)`;
+    });
+  }
+});
 loadData();
